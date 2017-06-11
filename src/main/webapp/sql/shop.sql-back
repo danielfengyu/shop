@@ -1,0 +1,78 @@
+--mysql -u root -p
+--password
+--use mysql;
+insert into user(host,user,password) values('localhost','admin',password('admin'));
+flush privileges;
+
+DROP DATABASE IF EXISTS shop;
+Create DATABASE shop;
+grant all privileges on shop.* to admin@localhost identified by'admin';
+flush privileges;
+
+USE shop;
+
+DROP TABLE IF EXISTS shop_user;
+CREATE TABLE shop_user (
+  user_id char(32) NOT NULL,
+  user_name varchar(30) DEFAULT NULL,
+  user_birthday date DEFAULT NULL,
+  user_salary double DEFAULT NULL,
+  PRIMARY KEY (user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--商品
+DROP TABLE IF EXISTS production;
+CREATE TABLE production(
+  production_id        int(10) unsigned NOT NULL AUTO_INCREMENT,
+  --产品名
+  production_name      varchar(30) DEFAULT NULL,
+  --进货价格
+  production_in_value  double(16,2) DEFAULT NULL,
+  --零售价格
+  production_out_value double(16,2) DEFAULT NULL,
+  --数量
+  production_num       int(10) unsigned DEFAULT 0,
+  --进货时间
+  stock_time           date DEFAULT NULL,
+  --卖出时间
+  sold_time            date DEFAULT NULL,
+  PRIMARY KEY (production_id,production_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--订单
+DROP TABLE IF EXISTS order_list;
+CREATE TABLE order_list(
+  order_id             int(10) unsigned NOT NULL AUTO_INCREMENT,
+  --客户名
+  customer_name          varchar(30) DEFAULT NULL,
+  --产品名
+  production_name      varchar(30) DEFAULT NULL,
+  --卖出数量
+  sold_num             int(10) unsigned NOT NULL DEFAULT 0,
+  --单价
+  production_one_value double(16,2) NOT NULL,
+  --总价格
+  production_all_value double(16,2) NOT NULL,
+  --卖出时间
+  sold_time            date NOT NULL,
+  --折扣
+  discount_price       float(4,3) NOT NULL DEFAULT 1,
+  --是否付账
+  is_pay               char(4) NOT NULL,
+  --付款时间
+  pay_time             date NOT NULL,
+  --描述
+  descrip              varchar(128) DEFAULT NULL,
+  PRIMARY KEY (order_id,custom_name,production_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--顾客
+DROP TABLE IF EXISTS customer;
+CREATE TABLE customer(
+  customer_id          int(10) unsigned NOT NULL AUTO_INCREMENT,
+  --客户名
+  customer_name        varchar(30) DEFAULT NULL,
+  --客户地址
+  customer_address     varchar(30) DEFAULT NULL,
+  PRIMARY KEY (customer_id,customer_name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

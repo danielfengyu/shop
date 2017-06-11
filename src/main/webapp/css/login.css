@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+body{
+    height: 619px;
+}
+#header{
+	height:30%;
+}
+#login{
+	height:40%;
+}
+#tail{
+	height:30%;
+}
+#loginForm{
+	padding:50px 540px 50px 540px;
+}
+tbody{
+	width:180px;
+	height:90px;
+}
+tr{
+	width:300px;
+}
+td{
+	width:300px;
+}

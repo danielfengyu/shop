@@ -10,7 +10,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.daniel.shop.dao.CustomerMapper;
@@ -27,17 +28,11 @@ public class CustomerServiceImpl implements ICustomerService
 {
 	@Resource
 	private CustomerMapper customerMapper;
-
-	private static final Logger log = Logger.getLogger( CustomerServiceImpl.class );
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.daniel.shop.service.ICustomerService#getAll()
-	 */
+	private static final Logger LOG = LoggerFactory.getLogger( CustomerServiceImpl.class );
 	@Override
 	public List<Customer> getAll()
 	{
-		log.info( "get all customer" );
+		LOG.info( "get all customer" );
 		return customerMapper.queryAll();
 	}
 

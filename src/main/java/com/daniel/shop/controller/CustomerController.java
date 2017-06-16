@@ -11,6 +11,8 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,7 @@ import com.daniel.shop.service.ICustomerService;
 @RequestMapping("/customer")
 public class CustomerController
 {
+	private static Logger LOG = LoggerFactory.getLogger( CustomerController.class );
 	@Resource
 	private ICustomerService customerService;
 

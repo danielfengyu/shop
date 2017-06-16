@@ -8,6 +8,8 @@ package com.daniel.shop.service.impl;
 
 import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.daniel.shop.dao.UserMapper;
@@ -22,18 +24,17 @@ import com.daniel.shop.service.IUserService;
 @Service("userService")
 public class UserServiceImpl implements IUserService
 {
-
+	private static final Logger LOG = LoggerFactory.getLogger( UserServiceImpl.class );
 	@Resource
 	private UserMapper userMapper;
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.daniel.shop.service.IUserService#getUserById(int)
-	 */
+
 	@Override
 	public User getUserById(int userId)
 	{
-		// TODO Auto-generated method stub
+		if (LOG.isDebugEnabled())
+		{
+			LOG.debug( "acquire user userId:{}", userId );
+		}
 		return this.userMapper.selectByPrimaryKey( userId );
 	}
 }

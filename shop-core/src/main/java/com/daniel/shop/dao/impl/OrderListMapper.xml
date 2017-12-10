@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.daniel.shop.dao.OrderListMapper" >
+  <resultMap id="BaseResultMap" type="com.daniel.shop.entities.OrderList" >
+    <id column="order_id" property="orderId" jdbcType="INTEGER" />
+    <id column="customer_name" property="customerName" jdbcType="VARCHAR" />
+    <id column="production_name" property="productionName" jdbcType="VARCHAR" />
+    <result column="sold_num" property="soldNum" jdbcType="INTEGER" />
+    <result column="production_one_value" property="productionOneValue" jdbcType="DOUBLE" />
+    <result column="production_all_value" property="productionAllValue" jdbcType="DOUBLE" />
+    <result column="sold_time" property="soldTime" jdbcType="DATE" />
+    <result column="discount_price" property="discountPrice" jdbcType="REAL" />
+    <result column="is_pay" property="isPay" jdbcType="CHAR" />
+    <result column="pay_time" property="payTime" jdbcType="DATE" />
+    <result column="descrip" property="descrip" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    order_id, customer_name, production_name, sold_num, production_one_value, production_all_value, 
+    sold_time, discount_price, is_pay, pay_time, descrip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.daniel.shop.entities.OrderListKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from order_list
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and customer_name = #{customerName,jdbcType=VARCHAR}
+      and production_name = #{productionName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.daniel.shop.entities.OrderListKey" >
+    delete from order_list
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and customer_name = #{customerName,jdbcType=VARCHAR}
+      and production_name = #{productionName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.daniel.shop.entities.OrderList" >
+    insert into order_list (order_id, customer_name, production_name, 
+      sold_num, production_one_value, production_all_value, 
+      sold_time, discount_price, is_pay, 
+      pay_time, descrip)
+    values (#{orderId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{productionName,jdbcType=VARCHAR}, 
+      #{soldNum,jdbcType=INTEGER}, #{productionOneValue,jdbcType=DOUBLE}, #{productionAllValue,jdbcType=DOUBLE}, 
+      #{soldTime,jdbcType=DATE}, #{discountPrice,jdbcType=REAL}, #{isPay,jdbcType=CHAR}, 
+      #{payTime,jdbcType=DATE}, #{descrip,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.daniel.shop.entities.OrderList" >
+    insert into order_list
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="customerName != null" >
+        customer_name,
+      </if>
+      <if test="productionName != null" >
+        production_name,
+      </if>
+      <if test="soldNum != null" >
+        sold_num,
+      </if>
+      <if test="productionOneValue != null" >
+        production_one_value,
+      </if>
+      <if test="productionAllValue != null" >
+        production_all_value,
+      </if>
+      <if test="soldTime != null" >
+        sold_time,
+      </if>
+      <if test="discountPrice != null" >
+        discount_price,
+      </if>
+      <if test="isPay != null" >
+        is_pay,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="descrip != null" >
+        descrip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null" >
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="productionName != null" >
+        #{productionName,jdbcType=VARCHAR},
+      </if>
+      <if test="soldNum != null" >
+        #{soldNum,jdbcType=INTEGER},
+      </if>
+      <if test="productionOneValue != null" >
+        #{productionOneValue,jdbcType=DOUBLE},
+      </if>
+      <if test="productionAllValue != null" >
+        #{productionAllValue,jdbcType=DOUBLE},
+      </if>
+      <if test="soldTime != null" >
+        #{soldTime,jdbcType=DATE},
+      </if>
+      <if test="discountPrice != null" >
+        #{discountPrice,jdbcType=REAL},
+      </if>
+      <if test="isPay != null" >
+        #{isPay,jdbcType=CHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=DATE},
+      </if>
+      <if test="descrip != null" >
+        #{descrip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.daniel.shop.entities.OrderList" >
+    update order_list
+    <set >
+      <if test="soldNum != null" >
+        sold_num = #{soldNum,jdbcType=INTEGER},
+      </if>
+      <if test="productionOneValue != null" >
+        production_one_value = #{productionOneValue,jdbcType=DOUBLE},
+      </if>
+      <if test="productionAllValue != null" >
+        production_all_value = #{productionAllValue,jdbcType=DOUBLE},
+      </if>
+      <if test="soldTime != null" >
+        sold_time = #{soldTime,jdbcType=DATE},
+      </if>
+      <if test="discountPrice != null" >
+        discount_price = #{discountPrice,jdbcType=REAL},
+      </if>
+      <if test="isPay != null" >
+        is_pay = #{isPay,jdbcType=CHAR},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=DATE},
+      </if>
+      <if test="descrip != null" >
+        descrip = #{descrip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and customer_name = #{customerName,jdbcType=VARCHAR}
+      and production_name = #{productionName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.daniel.shop.entities.OrderList" >
+    update order_list
+    set sold_num = #{soldNum,jdbcType=INTEGER},
+      production_one_value = #{productionOneValue,jdbcType=DOUBLE},
+      production_all_value = #{productionAllValue,jdbcType=DOUBLE},
+      sold_time = #{soldTime,jdbcType=DATE},
+      discount_price = #{discountPrice,jdbcType=REAL},
+      is_pay = #{isPay,jdbcType=CHAR},
+      pay_time = #{payTime,jdbcType=DATE},
+      descrip = #{descrip,jdbcType=VARCHAR}
+    where order_id = #{orderId,jdbcType=INTEGER}
+      and customer_name = #{customerName,jdbcType=VARCHAR}
+      and production_name = #{productionName,jdbcType=VARCHAR}
+  </update>
+</mapper>

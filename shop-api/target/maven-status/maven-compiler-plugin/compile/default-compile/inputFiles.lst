@@ -1,0 +1,14 @@
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\service\IDataService.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\Manager.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\service\IProductionList.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\service\IOrderListService.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\OrderList.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\OrderListKey.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\service\ICustomerService.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\ProductionKey.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\service\IUserService.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\service\IManagerService.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\Production.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\User.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\Customer.java
+D:\Code\GitHub Code\MyWebApp\shop\shop-api\src\main\java\com\daniel\shop\entities\CustomerKey.java

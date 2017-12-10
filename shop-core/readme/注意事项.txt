@@ -1,0 +1,2 @@
+"/"代表web项目的根——webapp，其实就是项目的部署名称。如本例就是shop
+"/index"代表根目录下的index.jsp文件。
